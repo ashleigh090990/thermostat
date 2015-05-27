@@ -4,25 +4,31 @@ function Thermostat() {
 	this.powersavemode = "on";
 
 	Thermostat.prototype.change = function(number) {
-		this.temperature = this.temperature + number
-
-		if (this.temperature < 10) {
-			this.temperature = 10;
-		};
-		
-		if ((this.powersavemode === "on") && (this.temperature > 25)) {
-			this.temperature = 25;
-		};
-		
-		if((this.powersavemode === "off") && (this.temperature > 32)) {
-			this.temperature = 32;
-		};
-
+		this.temperature = this.temperature + number;
+		this.ifLessThanTen();
+		this.ifPSOnAndTempOver25();
+		this.ifPSOffAndTempOver32();
 		return(this.temperature);
 
 	};
 
-	
+	Thermostat.prototype.ifLessThanTen = function() {
+		if (this.temperature < 10) {
+			this.temperature = 10;
+		};
+	};
+
+	Thermostat.prototype.ifPSOnAndTempOver25 = function() {
+		if ((this.powersavemode === "on") && (this.temperature > 25)) {
+			this.temperature = 25;
+		};
+	};
+
+	Thermostat.prototype.ifPSOffAndTempOver32 = function() {
+		if((this.powersavemode === "off") && (this.temperature > 32)) {
+			this.temperature = 32;
+		};
+	};
 
 	Thermostat.prototype.reset = function() {
 		this.temperature = 20;
