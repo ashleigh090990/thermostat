@@ -3,13 +3,24 @@ function Thermostat() {
 	this.temperature = 20;
 	this.powersavemode = "on";
 
+	Thermostat.prototype.powersave = function(onOff) {
+		this.powersavemode = onOff;
+	};
+
+	Thermostat.prototype.up = function() {
+		this.change(1);
+	};
+
+	Thermostat.prototype.down = function() {
+		this.change(-1);
+	};
+
 	Thermostat.prototype.change = function(number) {
 		this.temperature = this.temperature + number;
 		this.ifLessThanTen();
 		this.ifPSOnAndTempOver25();
 		this.ifPSOffAndTempOver32();
 		return(this.temperature);
-
 	};
 
 	Thermostat.prototype.ifLessThanTen = function() {

@@ -1,0 +1,28 @@
+<html>
+	<head>
+	  <script src='src/Thermostat.js'></script>
+	  <script src='src/app.js'></script>
+	</head>
+	<body>
+
+
+
+	  <title>SMASH THERMOSTAT</title>
+
+	  <h1>SMASH THERMOSTAT</h1>
+
+	  <div><span id='degrees'>I am a salmon :)</span> degrees</div>
+
+	  <h3>Temperature Control:</h3>
+	  <input id='up' type='button' value='up' onclick="thermostat.increaseTemp()">
+	  <input id='down' type='button' value='down' onclick="thermostat.decreaseTemp()">
+	  <br><br>
+	  <input id='reset' type='button' value='reset' onclick="thermostat.resetTemp()">
+	  <br><br>
+
+	  <h3>Power Save Mode:</h3>
+	  <input id='powersaveon' type='button' value='On' onclick="thermostat.powerSaveOn()">
+	  <input id='powersaveoff' type='button' value='Off' onclick="thermostat.powerSaveOff()">
+
+	</body>
+</html>

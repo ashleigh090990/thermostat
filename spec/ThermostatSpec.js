@@ -11,12 +11,12 @@ describe('Thermostat', function() {
 	});
 
 	it('can increase in temperature', function() {
-		thermostat.change(1);
+		thermostat.up();
 		expect(thermostat.temperature).toEqual(21);
 	});
 
 	it('can decrease in temperature', function() {
-		thermostat.change(-1);
+		thermostat.down();
 		expect(thermostat.temperature).toEqual(19);
 	});
 
@@ -32,6 +32,14 @@ describe('Thermostat', function() {
 	it('can only go up to 25 degrees when power saving mode is on', function() {
 		thermostat.change(20);
 		expect(thermostat.temperature).toEqual(25);
+	});
+
+	it('can have power save mode turned on and off', function() {
+		expect(thermostat.powersavemode).toEqual("on");
+		thermostat.powersave("off");
+		expect(thermostat.powersavemode).toEqual("off");
+		thermostat.powersave("on");
+		expect(thermostat.powersavemode).toEqual("on");
 	});
 
 	it('can only go up to 32 degrees when power saving mode is off', function() {
